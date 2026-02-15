@@ -1,0 +1,29 @@
+[package]
+name = "crypto_atomics_key"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow = "1.0.99"
+craby = "0.1.0-rc"
+cxx = { version = "1.0.187", features = ["c++20"] }
+# Storage & Serialization
+sled = "0.34"
+serde = { version = "1.0", features = ["derive"] }
+bincode = "1.3"
+
+# Crypto & Security
+k256 = { version = "0.13", features = ["ecdsa", "serde"] }
+argon2 = "0.5"
+chacha20poly1305 = "0.10"
+rand = "0.8"
+hex = "0.4"
+
+# Concurrency
+parking_lot = "0.12"
+[build-dependencies]
+craby_build = { version = "0.1.0-rc", features = ["cxx"] }
+
+[lib]
+name = "cryptoatomicskey"
+crate-type = ["staticlib"]

@@ -1,0 +1,8 @@
+[project]
+name = "crypto_atomics_key"
+source_dir = "src"
+
+[android]
+package_name = "rs.craby.cryptoatomicskey"
+
+[ios]
