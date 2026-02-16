@@ -53,12 +53,6 @@ function AppContent() {
     return `${baseDir}/secure_vault.db`;
   }, []);
 
-  const get_key = useCallback(async () => {
-    const path = getDbPath();
-    const key = await CryptoAtomicsKey.unlock_and_get_key('Sairaj', path);
-    setPrivateKey(key);
-    setState('ready');
-  }, [getDbPath]);
 
   // On mount, try to unlock existing key
   useEffect(() => {
@@ -242,18 +236,6 @@ function AppContent() {
             >
               <Text style={styles.buttonIcon}>⚡</Text>
               <Text style={styles.primaryButtonText}>Generate Key</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.button,
-                styles.primaryButton,
-                { backgroundColor: colors.accent },
-              ]}
-              onPress={get_key}
-              activeOpacity={0.8}
-            >
-              <Text style={styles.buttonIcon}>⚡</Text>
-              <Text style={styles.primaryButtonText}>receive Key</Text>
             </TouchableOpacity>
           </View>
         )}
